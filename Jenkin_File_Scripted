@@ -19,7 +19,7 @@ node{
     }
     stage('5.Deploy_to_UAT'){
         //use deplot-to-container plugin via pipeline syntax
-        deploy adapters: [tomcat9(credentialsId: 'Tomcat', path: '', url: 'http://3.15.27.116:8107/')], contextPath: bliss, war: 'target/*war'
+        deploy adapters: [tomcat9(credentialsId: 'Tomcat', path: '', url: 'http://3.15.27.116:8107/')], contextPath: 'bliss', war: 'target/*war'
         //Deploying[var/lib/jenkins/workspace/Lovelymepipeline/target/*.war]
     }
     stage('6.Manual Approval'){
@@ -30,7 +30,7 @@ node{
     }
     stage('7.Deploy_to_Prod'){
         sh "echo 'Deploy Applicatio to the customer/Production' "
-        deploy adapters: [tomcat9(credentialsId: 'Tomcat', path: '', url: 'http://3.15.27.116:8107/')], contextPath: bliss, war: 'target/*war'
+        deploy adapters: [tomcat9(credentialsId: 'Tomcat', path: '', url: 'http://3.15.27.116:8107/')], contextPath: 'bliss', war: 'target/*war'
     }
     stage('8.APM'){
         sh "echo 'Monitoring , Observation and Alerting' "
