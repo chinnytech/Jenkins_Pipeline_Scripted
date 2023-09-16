@@ -2,7 +2,8 @@ node{
     def mavenHome = tool name: "maven"
     stage('1.CloneCode'){
     //Jenkins running on a linux server
-    sh "git clone https://github.com/chinnytech/Another_one.git"
+    //sh "git clone https://github.com/chinnytech/Another_one.git"
+    git "https://github.com/chinnytech/Another_one.git"
     }
     stage('2.mvnBuild'){
         sh "${mavenHome}/bin/mvn clean package"
